@@ -71,6 +71,24 @@ function updateAudioStream (imageMetadata) {
     // start the transport which controls the main timeline
     Tone.Transport.start();
 
+    var fatOsc0 = new Tone.FatOscillator("A4", "triangle", 25);
+    var fatOsc1 = new Tone.FatOscillator("C4", "triangle", 100);
+    var fatOsc2 = new Tone.FatOscillator("E4", "triangle", 120);
+
+    // fatOsc1.start();
+    // fatOsc2.start();
+    var vol = new Tone.Volume(-12);
+
+    fatOsc0.chain(vol, verb);
+    fatOsc0.start();
+
+    fatOsc1.chain(vol, verb);
+    fatOsc1.start();
+    
+    fatOsc2.chain(vol, verb);
+    fatOsc2.start();
+
+
 }
 
 function simulation () {
