@@ -95,13 +95,13 @@ function simulation () {
 
         console.log("Update")
 
-        imageMetadata = FakeFeatureGen().generate();
+        imageMetadata = window.RTImageMetadata;
         console.log(imageMetadata);
 
         // Metadata hue
-        if (imageMetadata.hue > 50) {
+        if (imageMetadata.hue > 290) {
             var osc_notes = ["A3", "C3", "E3", "E4"];
-        } else if (imageMetadata.hue < 50) {
+        } else if (imageMetadata.hue < 290) {
             var osc_notes = ["A3", "G3", "C4", "E5"];
         }
 
@@ -111,9 +111,9 @@ function simulation () {
 
         // Metadata contrast
         if (index % 2) {
-        if (imageMetadata.contrast > 50) {
+        if (imageMetadata.contrast > 290) {
             var osc_notes = ["A3", "C3", "E3", "E4"];
-        } else if (imageMetadata.contrast < 50) {
+        } else if (imageMetadata.contrast < 290) {
             var osc_notes = ["A3", "G3", "C4", "Eb5"];
         }
 
@@ -129,9 +129,9 @@ function simulation () {
 
         // Metadata brightness
         if (index % 4)
-        if (imageMetadata.brightness > 50) {
+        if (imageMetadata.brightness > 290) {
             var osc_notes = ["A3", "A4", "E3", "E4"];
-        } else if (imageMetadata.brightness < 50) {
+        } else if (imageMetadata.brightness < 290) {
             var osc_notes = ["A3", "G4", "C4", "F5"];
         }
 
@@ -142,9 +142,9 @@ function simulation () {
         // Metadata red
         // Metadata brightness
         if (index % 4) {
-        if (imageMetadata.rgb.red > 50) {
+        if (imageMetadata.rgb.red > 100) {
             var osc_notes = ["C2", "C4", "E3", "E4"];
-        } else if (imageMetadata.rgb.red < 50) {
+        } else if (imageMetadata.rgb.red < 100) {
             var osc_notes = ["G2", "G4", "C4", "F5"];
         }
 
