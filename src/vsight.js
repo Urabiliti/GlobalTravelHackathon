@@ -53,6 +53,9 @@ function processImage () {
       canvas = document.getElementById('canvas');
       photo = document.getElementById('photo');
       startbutton = document.getElementById('startbutton');
+
+      canvas.style.display = "none";
+      photo.style.display = "none";
   
       navigator.mediaDevices.getUserMedia({video: true, audio: false})
       .then(function(stream) {
