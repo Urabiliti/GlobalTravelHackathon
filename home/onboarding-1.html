@@ -24,7 +24,7 @@
                     <p class="text-left">Skip</p>
                 </a>
                 <a href="onboarding-2.html">
-                    <p class="text-right">Next</p>
+                    <p id="nextButton" class="text-right">Next</p>
                 </a>     
             </nav>
 
@@ -59,6 +59,23 @@
   
     <!-- Onboarding-1 Javascript -->
     <script type="text/javascript" src="speechutils.js"></script>
+    <script>
+        if(window.SpeechUtils) {
+            window.SpeechUtils.startSpeechRecognition();
+
+            function setupSpeechRecognition () {
+                window.SpeechUtils.updateKeyWordSearch('next page', () => {
+                    document.getElementById('nextButton').click();
+                }, () => {
+                    window.SpeechUtils.stopSpeechRecognition();
+                    setupSpeechRecognition();
+                })
+            }
+
+            setupSpeechRecognition();
+
+        }
+    </script>
 
     </body>
 

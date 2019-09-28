@@ -11,7 +11,6 @@ function SpeechUtils () {
 
     var recognitionStarted = false;
 
-
     function synthesize(text, rate) {
         var utterThis = new SpeechSynthesisUtterance(text);
         if (rate) utterThis.rate = 0.5;
@@ -46,9 +45,17 @@ function SpeechUtils () {
         }
     }
 
+    function stopSpeechRecognition () {
+        if (recognition) {
+            recognition.stop();
+            recognitionStarted = false;
+        }
+    }
+
     return {
         synthesize: synthesize,
         startSpeechRecognition: startSpeechRecognition,
+        stopSpeechRecognition: stopSpeechRecognition,
         updateKeyWordSearch: updateKeyWordSearch
     }
 }
