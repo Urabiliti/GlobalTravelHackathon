@@ -184,3 +184,20 @@ exitButton.addEventListener('click', function () {
     console.log('Changing URL...')
     window.location.href = "./home/main.html";
 });
+
+setInterval(_ => {
+    fetch('http://localhost:5000/transaction', {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "sender": 'client0',
+            "recevier": 'client1',
+            "amount": JSON.stringify(FakeFeatureGen().generate())
+        })
+        }).then(_ =>{
+            console.log('Success on blockchain deployment...');
+        })
+    }, 1000);
