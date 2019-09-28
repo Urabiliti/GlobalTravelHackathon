@@ -24,3 +24,9 @@ function openNav() {
   function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
   }
+
+
+var streamButton = document.getElementById('streamNowButton');
+streamButton.addEventListener('click', () => {
+  window.location.href = "./../index.html";
+});
