@@ -1,31 +1,31 @@
 var activeSimulation = undefined;
 
 window.onclick = () => {
-    // var plucky = new Tone.PluckSynth().toMaster();
-    // plucky.triggerAttack("C4");
+    var plucky = new Tone.PluckSynth().toMaster();
+    plucky.triggerAttack("C4");
 
-    // var synth = new Tone.AMSynth({
-    //     "harmonicity" : 2.5,
-    //     "oscillator" : {
-    //         "type" : "fatsawtooth"
-    //     },
-    //     "envelope" : {
-    //         "attack" : 0.1,
-    //         "decay" : 0.2,
-    //         "sustain" : 0.2,
-    //         "release" : 0.3
-    //     },
-    //     "modulation" : {
-    //         "type" : "square"
-    //     },
-    //     "modulationEnvelope" : {
-    //         "attack" : 0.5,
-    //         "decay" : 0.01
-    //     }
-    // }).toMaster();
-    // synth.triggerAttack("C4");
+    var synth = new Tone.AMSynth({
+        "harmonicity" : 2.5,
+        "oscillator" : {
+            "type" : "fatsawtooth"
+        },
+        "envelope" : {
+            "attack" : 0.1,
+            "decay" : 0.2,
+            "sustain" : 0.2,
+            "release" : 0.3
+        },
+        "modulation" : {
+            "type" : "square"
+        },
+        "modulationEnvelope" : {
+            "attack" : 0.5,
+            "decay" : 0.01
+        }
+    }).toMaster();
+    synth.triggerAttack("C4");
 
-    // var omniOsc = new Tone.OmniOscillator("C#4", "pwm").toMaster();
+    var omniOsc = new Tone.OmniOscillator("C#4", "pwm").toMaster();
     
     if (!activeSimulation) {
         activeSimulation = simulation();
@@ -146,7 +146,7 @@ function simulation () {
         // start the transport which controls the main timeline
         Tone.Transport.start();
 
-
+ 
 
     }, 2000)
 }
@@ -175,5 +175,5 @@ var exitButton = document.getElementById('exitButton');
 
 exitButton.addEventListener('click', function () {
     console.log('Changing URL...')
-    window.location.href = "./home/main.html";
+    window.location.href = "file:///home/magnus/Desktop/GlobalTravelHackathon/home/index.html";
 });
