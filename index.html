@@ -4,8 +4,25 @@
     </head>
 
     <body>
+        <!-- <div class="contentarea"> -->
+        <div>
+            <div class="camera">
+                <video id="video">Video stream not available.</video>
+                <button id="startbutton">Take photo</button> 
+            </div>
+            <canvas id="canvas">
+            </canvas>
+            <div class="output">
+                <img id="photo" alt="The screen capture will appear in this box."> 
+                <button id="sendImage">Send image</button> 
+            </div>
+        </div>
+
+
+        <!-- <script async src="https://docs.opencv.org/master/opencv.js" onload="onOpenCVReady()" type="text/javascript"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/13.0.1/Tone.min.js"></script>
         <script src="src/fakefeaturegen.js"></script>
         <script src="src/index.js"></script>
+        <script src="src/vsight.js"></script>
     </body>
 </html>

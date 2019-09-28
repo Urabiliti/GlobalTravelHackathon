@@ -1,3 +1,32 @@
+
+
+function processImage () {
+
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext('2d');
+
+    var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+    var avgRed = imageData.data[0];
+    var avgGreen = imageData.data[1];
+    var avgBlue = imageData.data[2];
+
+    // invert colors
+    var i;
+    for (i = 0; i < imageData.data.length; i += 4) {
+        avgRed += imageData.data[i]; avgRed /= 2;
+        avgGreen += imageData.data[i+1]; avgGreen /= 2;
+        avgBlue += imageData.data[i+2]; avgBlue /= 2;
+    }
+
+    console.log({
+        red: avgRed,
+        green: avgGreen,
+        blue: avgBlue
+    })
+
+}
+
+
 (function() {
     // The width and height of the captured photo. We will set the
     // width to the value defined here, but the height will be
@@ -99,6 +128,7 @@
 
     setInterval(() => {
         takepicture();
+        processImage();
     }, 1000)
   
   })();
