@@ -30,7 +30,6 @@ window.onclick = () => {
     if (!activeSimulation) {
         activeSimulation = simulation();
     } else {
-        clearInterval(activeSimulation);
     }
 }
 

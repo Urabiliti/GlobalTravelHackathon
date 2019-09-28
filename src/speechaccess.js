@@ -33,10 +33,13 @@ recognition.onresult = function(event) {
   var utterThis = new SpeechSynthesisUtterance('You said ' + status);
   utterThis.rate = 0.5;
   synth.speak(utterThis);
-  if (status.includes('start')) {
-      alert('Starting recording...');
+  if (status.includes('exit')) {
+      try {
+        document.getElementById('exitButton').click();
+      } catch (e) {
+        console.warn(e);
+      }
   } else {
-      alert('Stopping recording...');
   }
 }
 
