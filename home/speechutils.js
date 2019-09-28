@@ -63,15 +63,3 @@ function SpeechUtils () {
 
 window.SpeechUtils = SpeechUtils();
 
-
-var welcomeSaid = false;
-
-window.onclick = function () {
-    if (!welcomeSaid) {
-        if (window.SpeechUtils) {
-            window.SpeechUtils.synthesize('Welcome to Chorus', 1.2);
-        } else {
-            alert('Speech Synthesis Error!');
-        }
-    }
-}
