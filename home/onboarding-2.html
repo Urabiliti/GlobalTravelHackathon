@@ -61,17 +61,17 @@
     <script>
             if(window.SpeechUtils) {
 
-                var nextKeyword = 'weiter';
+                var nextKeyword = 'next';
 
-                window.SpeechUtils.setLanguage('german');
+                // window.SpeechUtils.setLanguage('german');
 
                 
-                document.getElementById('upperText').innerHTML = 'Komponieren Sie ganz einfach einzigartige Musik von Weltklasse';
-                document.getElementById('lowerText').innerHTML = 'Keine zwei Kompositionen sind gleich! Bereisen Sie die Welt und drücken Sie Ihre Individualität aus';
-                document.getElementById('nextButton').innerHTML = 'Weiter';
+                // document.getElementById('upperText').innerHTML = 'Komponieren Sie ganz einfach einzigartige Musik von Weltklasse';
+                // document.getElementById('lowerText').innerHTML = 'Keine zwei Kompositionen sind gleich! Bereisen Sie die Welt und drücken Sie Ihre Individualität aus';
+                // document.getElementById('nextButton').innerHTML = 'Weiter';
     
 
-                window.SpeechUtils.startSpeechRecognition();
+                // window.SpeechUtils.startSpeechRecognition();
 
                 function setupSpeechRecognition () {
                     window.SpeechUtils.updateKeyWordSearch(nextKeyword, () => {

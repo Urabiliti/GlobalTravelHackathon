@@ -42,6 +42,11 @@ var notes = ["C3", "Eb3", "G3", "Bb3"];
 
 function updateAudioStream (imageMetadata) {
 
+    //create an autofilter and start it's LFO
+    // var autoFilter = new Tone.AutoFilter(0.1, 2000).toMaster().start();
+    //route an oscillator through the filter and start it
+    // var oscillator = new Tone.Oscillator(100).connect(autoFilter).start();
+
     var random_num = Math.random()*100;
     if (random_num > 50) { 
         var audio = new Audio("Glass_Pad.wav");
@@ -123,9 +128,9 @@ function simulation () {
     return setInterval(() => {
         
         // updateAudioStream(FakeFeatureGen().generate());
-        verb.decay = Math.random() + Math.random();
+        verb.decay = 10;
         verb.predelay = Math.random() * 1.1;
-        pingPong.delayTime = Math.random() + 1;
+        pingPong.delayTime = 8 + Math.random();
         console.log(verb.decay);
 
         var plucky = new Tone.PluckSynth();

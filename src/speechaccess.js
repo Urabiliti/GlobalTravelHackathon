@@ -17,13 +17,13 @@ var recognitionStarted = false;
 
 document.body.onclick = function() {
 
-    if (!recognitionStarted){
-        recognition.start();
-        console.log('Ready to receive a voice command.');
-        recognitionStarted = true;
-    } else {
-        console.warn('Recognition already started!, ignoring additional press');
-    }
+    // if (!recognitionStarted){
+    //     recognition.start();
+    //     console.log('Ready to receive a voice command.');
+    //     recognitionStarted = true;
+    // } else {
+    //     console.warn('Recognition already started!, ignoring additional press');
+    // }
 }
 
 recognition.onresult = function(event) {
