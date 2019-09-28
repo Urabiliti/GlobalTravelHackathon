@@ -24,7 +24,7 @@
                         <p class="text-left">Previous</p>
                 </a>
                 <a href="onboarding-3.html">
-                        <p class="text-right">Next</p>
+                        <p id="nextButton" class="text-right">Next</p>
                 </a>     
             </nav>
 
@@ -57,7 +57,25 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
     <!-- Onboarding-1 Javascript -->
+    <script type="text/javascript" src="speechutils.js"></script>
+    <script>
+            if(window.SpeechUtils) {
+                window.SpeechUtils.startSpeechRecognition();
+    
+                function setupSpeechRecognition () {
+                    window.SpeechUtils.updateKeyWordSearch('next page', () => {
+                        document.getElementById('nextButton').click();
 
+                    }, () => {
+                        window.SpeechUtils.stopSpeechRecognition();
+                        setupSpeechRecognition();
+                    })
+                }
+    
+                setupSpeechRecognition();
+    
+            }
+        </script>
 
     </body>
 

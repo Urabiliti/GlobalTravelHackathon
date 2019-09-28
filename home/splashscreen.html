@@ -1,0 +1,104 @@
+<html>
+
+
+    <head>
+        <style>
+            .lds-grid {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px;
+            }
+            .lds-grid div {
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #fff;
+            animation: lds-grid 1.2s linear infinite;
+            }
+            .lds-grid div:nth-child(1) {
+            top: 6px;
+            left: 6px;
+            animation-delay: 0s;
+            }
+            .lds-grid div:nth-child(2) {
+            top: 6px;
+            left: 26px;
+            animation-delay: -0.4s;
+            }
+            .lds-grid div:nth-child(3) {
+            top: 6px;
+            left: 45px;
+            animation-delay: -0.8s;
+            }
+            .lds-grid div:nth-child(4) {
+            top: 26px;
+            left: 6px;
+            animation-delay: -0.4s;
+            }
+            .lds-grid div:nth-child(5) {
+            top: 26px;
+            left: 26px;
+            animation-delay: -0.8s;
+            }
+            .lds-grid div:nth-child(6) {
+            top: 26px;
+            left: 45px;
+            animation-delay: -1.2s;
+            }
+            .lds-grid div:nth-child(7) {
+            top: 45px;
+            left: 6px;
+            animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+  top: 45px;
+  left: 26px;
+  animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+  top: 45px;
+  left: 45px;
+  animation-delay: -1.6s;
+}
+        </style>
+    </head>
+
+    <body style="background-color: black">
+
+            <div id="p" style="height: 100%;
+                        display: flex;
+                        width: 100%;
+                        flex-direction: column;
+                        justify-content: center;">
+                <div style="width: 100%; 
+                            display: flex;
+                            justify-content: center;">
+                    <!-- <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> -->
+                    <img src="koaruslogo.png"/>
+                </div>
+            </div>
+
+            <div id="p" style="top: 80%;
+                        display: flex;
+                        width: 100%;
+                        flex-direction: column;
+                        justify-content: center;
+                        position: absolute;">
+                <div style="width: 100%; 
+                            display: flex;
+                            justify-content: center;">
+                    <span style="color: white; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 200%; letter-spacing: 10px;">ACCESSIBILITY DRIVES US</span>
+                </div>
+            </div>
+
+
+            <script type="text/javascript">
+
+                setTimeout(() => {
+                    window.location.href = "./onboarding-1.html"
+                }, 1500);
+            </script>
+    </body>
+</html>
