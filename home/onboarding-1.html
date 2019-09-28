@@ -21,10 +21,10 @@
         <!-- navbar -->
             <nav class="navbar bg-transparent">
                 <a href="main.html">
-                    <p class="text-left">Skip</p>
+                    <p class="text-left grouplink">Skip</p>
                 </a>
                 <a href="onboarding-2.html">
-                    <p id="nextButton" class="text-right">Next</p>
+                    <p id="nextButton" class="text-right grouplink">Next</p>
                 </a>     
             </nav>
 
@@ -86,19 +86,6 @@
 
             
 
-        }
-
-
-        var welcomeSaid = false;
-
-        window.onclick = function () {
-            if (!welcomeSaid) {
-                if (window.SpeechUtils) {
-                    window.SpeechUtils.synthesize('Welcome to Chorus', 1.2);
-                } else {
-                    alert('Speech Synthesis Error!');
-                }
-            }
         }
     </script>
 
