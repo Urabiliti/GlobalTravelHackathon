@@ -1,0 +1,7 @@
+body,html{
+    height:100%;
+}
+
+#logInBtn {
+    opacity: 0.2;
+}
