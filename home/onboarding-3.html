@@ -31,11 +31,11 @@
             <div class="container">
 
             <div>
-              <h2 class="text-center mt-5">Connect with millions of sensory explorers</h2>
+              <h2 id="upperText" class="text-center mt-5">Connect with millions of sensory explorers</h2>
             </div>
 
             <div>
-              <p class="text-center mt-5">Share your new world with a community seeking amazing experiences</p>
+              <p id="lowerText" class="text-center mt-5">Share your new world with a community seeking amazing experiences</p>
             </div>
 
             <div class="fixed-bottom mb-3">
@@ -60,10 +60,20 @@
     <script type="text/javascript" src="speechutils.js"></script>
     <script>
             if(window.SpeechUtils) {
+                var nextKeyword = 'weiter';
+
+                window.SpeechUtils.setLanguage('german');
+
+                
+                document.getElementById('upperText').innerHTML = 'Verbinde dich mit Millionen von sensorischen Entdeckern';
+                document.getElementById('lowerText').innerHTML = 'Teilen Sie Ihre neue Welt mit einer Community, die nach erstaunlichen Erfahrungen sucht';
+                document.getElementById('nextButton').innerHTML = 'Weiter';
+    
+
                 window.SpeechUtils.startSpeechRecognition();
     
                 function setupSpeechRecognition () {
-                    window.SpeechUtils.updateKeyWordSearch('next page', () => {
+                    window.SpeechUtils.updateKeyWordSearch(nextKeyword, () => {
                         document.getElementById('nextButton').click();
                     }, () => {
                         window.SpeechUtils.stopSpeechRecognition();

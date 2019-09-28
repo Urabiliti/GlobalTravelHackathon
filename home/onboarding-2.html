@@ -31,11 +31,11 @@
             <div class="container">
 
             <div>
-              <h2 class="text-center mt-5">Easily compose one-of-a-kind world-class music</h2>
+              <h2 id="upperText" class="text-center mt-5">Easily compose one-of-a-kind world-class music</h2>
             </div>
 
             <div>
-              <p class="text-center mt-5">No two compositions are the same! Travel the world and express your individuality</p>
+              <p id="lowerText" class="text-center mt-5">No two compositions are the same! Travel the world and express your individuality</p>
             </div>
             
             <div class="fixed-bottom mb-3">
@@ -60,10 +60,21 @@
     <script type="text/javascript" src="speechutils.js"></script>
     <script>
             if(window.SpeechUtils) {
-                window.SpeechUtils.startSpeechRecognition();
+
+                var nextKeyword = 'weiter';
+
+                window.SpeechUtils.setLanguage('german');
+
+                
+                document.getElementById('upperText').innerHTML = 'Komponieren Sie ganz einfach einzigartige Musik von Weltklasse';
+                document.getElementById('lowerText').innerHTML = 'Keine zwei Kompositionen sind gleich! Bereisen Sie die Welt und drücken Sie Ihre Individualität aus';
+                document.getElementById('nextButton').innerHTML = 'Weiter';
     
+
+                window.SpeechUtils.startSpeechRecognition();
+
                 function setupSpeechRecognition () {
-                    window.SpeechUtils.updateKeyWordSearch('next page', () => {
+                    window.SpeechUtils.updateKeyWordSearch(nextKeyword, () => {
                         document.getElementById('nextButton').click();
 
                     }, () => {

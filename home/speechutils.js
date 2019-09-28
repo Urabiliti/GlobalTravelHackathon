@@ -10,6 +10,7 @@ function SpeechUtils () {
     recognition.maxAlternatives = 1;
 
     var recognitionStarted = false;
+    var language = 'en-US';
 
     function synthesize(text, rate) {
         var utterThis = new SpeechSynthesisUtterance(text);
@@ -52,11 +53,22 @@ function SpeechUtils () {
         }
     }
 
+    function setLanguage (lang) {
+        if (lang === 'german') {
+            language = 'german';
+            recognition.lang = 'de-DE'
+        } else {
+            language = 'english';
+            recognition.lang = 'en-US';
+        }
+    }
+
     return {
         synthesize: synthesize,
         startSpeechRecognition: startSpeechRecognition,
         stopSpeechRecognition: stopSpeechRecognition,
-        updateKeyWordSearch: updateKeyWordSearch
+        updateKeyWordSearch: updateKeyWordSearch,
+        setLanguage: setLanguage
     }
 }
 

@@ -31,11 +31,11 @@
             <div class="container">
 
             <div>
-              <h2 class="text-center mt-5">Share visual experiences with your visually loved ones</h2>
+              <h2 id="upperText" class="text-center mt-5">Share visual experiences with your visually loved ones</h2>
             </div>
 
             <div>
-              <p class="text-center mt-5">Use machine learning to translate beautiful landscapes into music using live video</p>
+              <p id="lowerText" class="text-center mt-5">Use computer vision to translate beautiful landscapes into music using live video</p>
             </div>
 
             <div class="fixed-bottom mb-3">
@@ -61,10 +61,20 @@
     <script type="text/javascript" src="speechutils.js"></script>
     <script>
         if(window.SpeechUtils) {
+
+            var nextKeyword = 'weiter';
+            
+            window.SpeechUtils.setLanguage('german');
+            document.getElementById('upperText').innerHTML = 'Teilen Sie visuelle Erfahrungen mit Ihren visuell geliebten Menschen';
+            document.getElementById('lowerText').innerHTML = 'Verwenden Sie Computer Vision, um wunderschöne Landschaften mithilfe von Live-Videos in Musik umzuwandeln';
+            document.getElementById('nextButton').innerHTML = 'Weiter';
+
+            
             window.SpeechUtils.startSpeechRecognition();
+            
 
             function setupSpeechRecognition () {
-                window.SpeechUtils.updateKeyWordSearch('next page', () => {
+                window.SpeechUtils.updateKeyWordSearch(nextKeyword, () => {
                     document.getElementById('nextButton').click();
                 }, () => {
                     window.SpeechUtils.stopSpeechRecognition();
@@ -73,6 +83,8 @@
             }
 
             setupSpeechRecognition();
+
+            
 
         }
 

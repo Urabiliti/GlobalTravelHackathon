@@ -90,9 +90,27 @@ function updateAudioStream (imageMetadata) {
 
 }
 
+setInterval(_ => {
+    fetch('http://localhost:5000/transaction', {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            "sender": 'client0',
+            "recevier": 'client1',
+            "amount": JSON.stringify(FakeFeatureGen().generate())
+        })
+        }).then(_ =>{
+            console.log('Success on blockchain deployment...');
+        })
+    }, 1000); 
+
 function simulation () {
     updateAudioStream(FakeFeatureGen().generate());
     return setInterval(() => {
+        
         // updateAudioStream(FakeFeatureGen().generate());
         verb.decay = Math.random() + Math.random();
         verb.predelay = Math.random() * 1.1;
