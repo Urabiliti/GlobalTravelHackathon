@@ -31,57 +31,57 @@ function updateAudioStream (imageMetadata) {
         audio.play();
     }
 
-    // // create a synth
-    // membraneSynth = new Tone.MembraneSynth();
-    // // create an array of notes to be played
-    // // create a new sequence with the synth and notes
-    // sequencePart = new Tone.Sequence(
-    // function(time, note) {
-    //     membraneSynth.triggerAttackRelease(note, "1000hz", time);
-    // },
-    // notes,
-    // "2n"
-    // );
+    // create a synth
+    membraneSynth = new Tone.MembraneSynth();
+    // create an array of notes to be played
+    // create a new sequence with the synth and notes
+    sequencePart = new Tone.Sequence(
+    function(time, note) {
+        membraneSynth.triggerAttackRelease(note, "1000hz", time);
+    },
+    notes,
+    "2n"
+    );
 
     
-    // verb = new Tone.Reverb().toMaster();
-    // pingPong = new Tone.PingPongDelay();
+    verb = new Tone.Reverb().toMaster();
+    pingPong = new Tone.PingPongDelay();
 
-    // verb.generate();
-    // membraneSynth.connect(pingPong);
-    // pingPong.connect(verb);
+    verb.generate();
+    membraneSynth.connect(pingPong);
+    pingPong.connect(verb);
 
-    // // Setup the synth to be ready to play on beat 1
-    // sequencePart.start();
-    // // Note that if you pass a time into the start method 
-    // // you can specify when the synth part starts 
-    // // e.g. .start('8n') will start after 1 eighth note
-    // // start the transport which controls the main timeline
-    // Tone.Transport.start();
+    // Setup the synth to be ready to play on beat 1
+    sequencePart.start();
+    // Note that if you pass a time into the start method 
+    // you can specify when the synth part starts 
+    // e.g. .start('8n') will start after 1 eighth note
+    // start the transport which controls the main timeline
+    Tone.Transport.start();
 
-    // if (imageMetadata.hue > 50) {
-    //     var osc_notes = ["A3", "C3", "Eb3", "Eb4"];
-    // } else if (imageMetadata.hue < 50) {
-    //     var osc_notes = ["A3", "G3", "C4", "Eb5"];
-    // }
+    if (imageMetadata.hue > 50) {
+        var osc_notes = ["A3", "C3", "Eb3", "Eb4"];
+    } else if (imageMetadata.hue < 50) {
+        var osc_notes = ["A3", "G3", "C4", "Eb5"];
+    }
  
-    // // osc group 1
-    // var fatOsc0 = new Tone.FatOscillator(osc_notes[0], "triangle", 1);
-    // var fatOsc1 = new Tone.FatOscillator(osc_notes[1], "triangle", 1);
-    // var fatOsc2 = new Tone.FatOscillator(osc_notes[2], "triangle", 1);
-    // var fatOsc3 = new Tone.FatOscillator(osc_notes[3], "triangle", 1);
+    // osc group 1
+    var fatOsc0 = new Tone.FatOscillator(osc_notes[0], "triangle", 1);
+    var fatOsc1 = new Tone.FatOscillator(osc_notes[1], "triangle", 1);
+    var fatOsc2 = new Tone.FatOscillator(osc_notes[2], "triangle", 1);
+    var fatOsc3 = new Tone.FatOscillator(osc_notes[3], "triangle", 1);
 
-    // var vol = new Tone.Volume(-10);
+    var vol = new Tone.Volume(-10);
 
-    // fatOsc0.chain(vol, verb);
-    // fatOsc1.chain(vol, verb);
-    // fatOsc2.chain(vol, verb);
-    // fatOsc3.chain(vol, verb);
+    fatOsc0.chain(vol, verb);
+    fatOsc1.chain(vol, verb);
+    fatOsc2.chain(vol, verb);
+    fatOsc3.chain(vol, verb);
 
-    // fatOsc0.start();
-    // fatOsc1.start();
-    // fatOsc2.start();
-    // fatOsc3.start();
+    fatOsc0.start();
+    fatOsc1.start();
+    fatOsc2.start();
+    fatOsc3.start();
 
 }
 
@@ -91,7 +91,10 @@ function simulation () {
     return setInterval(() => {
         index += 1;
         verb = new Tone.Reverb().toMaster();
+        verb.decay = Math.random() + Math.random();
+        verb.predelay = Math.random() * 1.1;
         verb.generate();
+        
 
         console.log("Update")
 
@@ -117,10 +120,10 @@ function simulation () {
             var osc_notes = ["A3", "G3", "C4", "Eb5"];
         }
 
-        var synth = new Tone.Synth().toMaster()
+        var synth = new Tone.Synth();
         pingPong = new Tone.PingPongDelay();
+        pingPong.decay = 2.0;
 
-        verb.generate();
         synth.connect(pingPong);
         pingPong.connect(verb);
         synth.triggerAttackRelease(osc_notes[2], '2n')
@@ -135,7 +138,7 @@ function simulation () {
             var osc_notes = ["A3", "G4", "C4", "F5"];
         }
 
-        var synth = new Tone.Synth().toMaster()
+        var synth = new Tone.Synth();
         synth.triggerAttackRelease(osc_notes[4], '8n')
         delete osc_notes;
 
@@ -148,7 +151,7 @@ function simulation () {
             var osc_notes = ["G2", "G4", "C4", "F5"];
         }
 
-        var synth = new Tone.Synth().toMaster()
+        var synth = new Tone.Synth();
         
         synth.triggerAttackRelease(osc_notes[0], '1n')
         delete osc_notes;

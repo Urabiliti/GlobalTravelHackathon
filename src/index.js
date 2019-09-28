@@ -42,6 +42,17 @@ var notes = ["C3", "Eb3", "G3", "Bb3"];
 
 function updateAudioStream (imageMetadata) {
 
+    var random_num = Math.random()*100;
+    if (random_num > 50) { 
+        var audio = new Audio("Glass_Pad.wav");
+        audio.loop = true;
+        audio.play();
+    } else if (random_num < 50) {
+        var audio = new Audio("Sadness_Pad.wav");
+        audio.loop = true;
+        audio.play();
+    }
+
     // create a synth
     membraneSynth = new Tone.MembraneSynth();
     // create an array of notes to be played
@@ -133,7 +144,7 @@ function simulation () {
         // delete sequencePart;
         sequencePart = new Tone.Sequence(
         function(time, note) {
-            membraneSynth.triggerAttackRelease(note, "100hz", time);
+            membraneSynth.triggerAttackRelease(note, "1000Hz", time);
         },
         generateANotes(newSequenceLen),
         newSequenceLen + "n"
@@ -175,5 +186,5 @@ var exitButton = document.getElementById('exitButton');
 
 exitButton.addEventListener('click', function () {
     console.log('Changing URL...')
-    window.location.href = "file:///home/magnus/Desktop/GlobalTravelHackathon/home/index.html";
+    window.location.href = "./home/main.html";
 });
