@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # GTH-Location-TeamName
 Project submission for the `Global Travel Hackathon in London, by DotFlak team`.
 
@@ -45,3 +46,8 @@ Write a short description how can other people run your project.
 ## :warning: Licence
 
 >The code in this project is licensed under MIT license. By contributing to this project, you agree that your contributions will be licensed under its MIT license.
+=======
+# GlobalTravelHackathon
+
+We are bringing accessible travel to the visually impaired. By converting live web video into music using hundreds of data points we are creating a new way to experience the world! Not only can the visually impaired experience the world with a new sense of empowerment but each experience is unique to the user. 
+>>>>>>> 43b7cc3586574ea7ba9142f441366c8175c1fb30
