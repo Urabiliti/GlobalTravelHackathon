@@ -152,3 +152,11 @@ function generateANotes (num) {
     }
     return output;
 }
+
+
+var exitButton = document.getElementById('exitButton');
+
+exitButton.addEventListener('click', function () {
+    console.log('Changing URL...')
+    window.location.href = "file:///home/magnus/Desktop/GlobalTravelHackathon/home/index.html";
+});
